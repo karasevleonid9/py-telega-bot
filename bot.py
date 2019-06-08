@@ -1,19 +1,21 @@
+import json
 from telegram.ext import Updater, CommandHandler
 
+with open('database/seed.json', 'r', encoding='utf8') as f:
+        seed = json.load(f)
+with open('config.json', 'r', encoding='utf8') as f:
+        conf = json.load(f)
 
 def start(bot, update):
-    update.message.reply_text('Welcome bro')
+    update.message.reply_text(seed['maintenance_msg'])
 
-def hello(bot, update):
-    update.message.reply_text(
-        'Hello {}'.format(update.message.from_user.first_name))
+updaters = []
+for token in conf['bots']:
+        updater = Updater(token)
+        updater.dispatcher.add_handler(CommandHandler('start', start))
+        updaters.append(updater)
 
 
-updater = Updater('800961762:AAEDkucfaCgesFDizuA9IhReHZL2Xkcaz_k')
-
-updater.dispatcher.add_handler(CommandHandler('hello', hello))
-
-updater.start_polling()
-updater.idle()
-
-print("bot started")
+for updater in updaters:
+        updater.start_polling()
+        #updater.idle()
