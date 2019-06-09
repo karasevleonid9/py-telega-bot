@@ -1,3 +1,2 @@
 python-telegram-bot
-redis
-rq
+sqlite3
