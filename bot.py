@@ -10,10 +10,9 @@ with open('config.json', 'r', encoding='utf8') as f:
 with open('database/seed.json', 'r', encoding='utf8') as f:
 	seed = json.load(f)
 
-
 # mongodb connection
 client = pymongo.MongoClient(conf["mongodb"])
-	db = client.test
+db = client.test
 
 
 def start(bot, update):
@@ -23,7 +22,7 @@ def start(bot, update):
 def main():
 	updaters = []
 	for token in conf['bots']:
-		updater = Updater(token)
+		updater = Updater(token, use_context=True)
 		updater.dispatcher.add_handler(CommandHandler('start', start))
 		updaters.append(updater)
 
