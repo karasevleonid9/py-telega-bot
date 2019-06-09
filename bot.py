@@ -14,20 +14,23 @@ with open('database/seed.json', 'r', encoding='utf8') as f:
 client = pymongo.MongoClient(conf["mongodb"])
 db = client.test
 
-def start(bot, update):
+def startHandler(bot, update):
 	update.message.reply_text(seed['maintenance_msg'])
 
+def helpHandler(bot, update)
+	update.message.reply_text(seed['help'])
 
 def main():
 	updaters = []
 	for token in conf['bots']:
 		updater = Updater(token)
-		updater.dispatcher.add_handler(CommandHandler('start', start))
+		updater.dispatcher.add_handler(CommandHandler('start', startHandler))
+		updater.dispatcher.add_handler(CommandHandler('help', helpHandler))
 		updaters.append(updater)
 
 	for updater in updaters:
 		updater.start_polling()
-		updater.idle()
+		#updater.idle()
 
 if __name__ == '__main__':
     main()
