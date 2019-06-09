@@ -21,7 +21,7 @@ def start(bot, update):
 def main():
 	updaters = []
 	for token in conf['bots']:
-		updater = Updater(token, use_context=True)
+		updater = Updater(token)
 		updater.dispatcher.add_handler(CommandHandler('start', start))
 		updaters.append(updater)
 
