@@ -1,4 +1,5 @@
 import json
+import pymongo
 from telegram.ext import Updater, CommandHandler
 
 with open('database/seed.json', 'r', encoding='utf8') as f:
@@ -15,6 +16,9 @@ for token in conf['bots']:
         updater.dispatcher.add_handler(CommandHandler('start', start))
         updaters.append(updater)
 
+
+client = pymongo.MongoClient(conf["mongodb"])
+db = client.test
 
 for updater in updaters:
         updater.start_polling()

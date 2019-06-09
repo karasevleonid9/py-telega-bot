@@ -4,5 +4,6 @@
         "835991334:AAER6sYIPwur01TcdQo8LWbEy3Eqisn_f_U",
         "883124366:AAGubFMqSkb5EnFFWXFDnQYrFeGES9NT3Yk",
         "684706968:AAEVgs7kd36JHCbNuyMPVqWOrhTNQ8pLzr4"
-    ]
+    ],
+    "mongodb": "mongodb+srv://karasevleonid:<xQhzZEcZ6Em2lIOb>@cluster0-d2g2w.mongodb.net/test?retryWrites=true&w=majority"
 }
