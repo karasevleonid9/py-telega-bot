@@ -17,7 +17,7 @@ db = client.test
 def startHandler(bot, update):
 	update.message.reply_text(seed['maintenance_msg'])
 
-def helpHandler(bot, update)
+def helpHandler(bot, update):
 	update.message.reply_text(seed['help'])
 
 def main():
