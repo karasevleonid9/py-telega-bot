@@ -14,7 +14,6 @@ with open('database/seed.json', 'r', encoding='utf8') as f:
 client = pymongo.MongoClient(conf["mongodb"])
 db = client.test
 
-
 def start(bot, update):
 	update.message.reply_text(seed['maintenance_msg'])
 
